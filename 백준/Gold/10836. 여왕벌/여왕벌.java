@@ -19,8 +19,7 @@ public class Main {
 		init();
 
 		for(int i = 0; i < N; i++){
-			input();
-			makeSum();
+			solve();
 		}
 
 		print();
@@ -39,36 +38,34 @@ public class Main {
 		Arrays.fill(horizon, 1);
 	}
 
-	static void input() throws IOException {
+	static void solve() throws IOException {
 		st = new StringTokenizer(br.readLine());
 
 		int zero = Integer.parseInt(st.nextToken());
 		int one = Integer.parseInt(st.nextToken());
 		int two = Integer.parseInt(st.nextToken());
 
-		while(zero > 0) {
-			queue.add(0);
-			zero--;
+		for (int j = 0; j < M; j++) {
+			if(zero != 0) {
+				zero--;
+			} else if(one != 0) {
+				vertical[j] += 1;
+				one--;
+			} else if(two != 0) {
+				vertical[j] += 2;
+				two--;
+			}
 		}
-
-		while(one > 0) {
-			queue.add(1);
-			one--;
-		}
-
-		while(two > 0) {
-			queue.add(2);
-			two--;
-		}
-	}
-
-	static void makeSum() {
-		for(int j = 0; j < M; j++){
-			vertical[j] += queue.poll();
-		}
-
-		for(int j = 0; j < M - 1; j++){
-			horizon[j] += queue.poll();
+		for (int j = 0; j < M - 1; j++) {
+			if(zero != 0) {
+				zero--;
+			} else if(one != 0) {
+				horizon[j] += 1;
+				one--;
+			} else if(two != 0) {
+				horizon[j] += 2;
+				two--;
+			}
 		}
 	}
 
