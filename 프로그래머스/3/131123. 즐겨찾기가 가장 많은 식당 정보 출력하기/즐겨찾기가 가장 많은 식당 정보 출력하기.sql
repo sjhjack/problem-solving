@@ -1,0 +1,12 @@
+-- 코드를 입력하세요
+SELECT FOOD_TYPE, REST_ID, REST_NAME, FAVORITES
+FROM REST_INFO
+WHERE (FOOD_TYPE, FAVORITES) IN (
+    SELECT FOOD_TYPE, MAX(FAVORITES)
+    FROM REST_INFO
+    GROUP BY FOOD_TYPE
+)
+ORDER BY FOOD_TYPE DESC;
+
+# GROUP BY로 묶으면 가장 상단에 있는 데이터들을 임의로 가져온다. 
+# 고로 SELECT에 MAX를 해도 최대값을 가져오는것이 아닌 그룹화된 테이블 가장 상단을 가져오게 된다.
