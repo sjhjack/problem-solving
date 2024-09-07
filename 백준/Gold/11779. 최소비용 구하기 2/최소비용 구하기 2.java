@@ -71,6 +71,9 @@ class Main {
                 break;
             }
             
+            if(isVisited[cur.city]) {
+                continue;
+            }
             isVisited[cur.city] = true;
 
             for(Bus next : busCost[cur.city]) {
