@@ -3,7 +3,6 @@ import java.util.*;
 
 class Main {
     static int N, M;
-    static int[][] arr;
     static int[][] horizonPrefSum;
     
     public static void main(String[] args) throws IOException {
@@ -18,19 +17,12 @@ class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        arr = new int[N + 1][M + 1];
         horizonPrefSum = new int[N + 1][M + 1];
         
         for(int i = 1; i <= N; i++) {
             st = new StringTokenizer(br.readLine());
             for(int j = 1; j <= M; j++) {
-                arr[i][j] = Integer.parseInt(st.nextToken());
-            }
-        }
-
-        for(int i = 1; i <= N; i++) {
-            for(int j = 1; j <= M; j++) {
-                horizonPrefSum[i][j] = horizonPrefSum[i][j-1] + arr[i][j];
+                horizonPrefSum[i][j] = horizonPrefSum[i][j-1] + Integer.parseInt(st.nextToken());
             }
         }
     }
