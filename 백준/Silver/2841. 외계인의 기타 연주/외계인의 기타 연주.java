@@ -9,9 +9,9 @@ class Main {
         int N = Integer.parseInt(st.nextToken());
         int P = Integer.parseInt(st.nextToken());
 
-        Stack<Integer>[] arr = new Stack[N + 1];
+        Stack<Integer>[] arr = new Stack[7];
         
-        for(int i = 1; i <= N; i++) {
+        for(int i = 1; i <= 6; i++) {
             arr[i] = new Stack<>();
         }
 
