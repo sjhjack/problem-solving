@@ -19,7 +19,7 @@ class Main {
 
     static void solve() {
         Queue<Integer> queue = new ArrayDeque<>();
-        int[] dp = new int[2_000_001];
+        int[] dp = new int[1_000_001];
         Arrays.fill(dp, Integer.MAX_VALUE);
 
         queue.add(A);
