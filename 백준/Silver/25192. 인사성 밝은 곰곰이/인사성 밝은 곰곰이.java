@@ -12,10 +12,6 @@ class Main {
         for(int i = 0; i < N; i++) {
             String s = br.readLine();
 
-            if(set == null && !s.equals("ENTER")) {
-                continue;
-            }
-
             if(s.equals("ENTER")) {
                 set = new HashSet<>();
             } else if(!set.contains(s)) {
