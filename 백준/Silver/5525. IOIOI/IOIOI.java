@@ -2,7 +2,7 @@ import java.io.*;
 
 class Main {
     static int N, M;
-    static String S, P;
+    static char[] arr;
     
     public static void main(String[] args) throws IOException {
         init();
@@ -14,21 +14,26 @@ class Main {
 
         N = Integer.parseInt(br.readLine());
         M = Integer.parseInt(br.readLine());
-        S = br.readLine();
-        P = "I";
-        
-        for(int i = 0; i < N; i++) {
-            P += "OI";
-        }
+        arr = br.readLine().toCharArray();
     }
 
     static void solve() {
         int ans = 0;
-        int index = 0;
+        int count = 0;
 
-        while((index = S.indexOf(P)) >= 0) {
-            ans++;
-            S = S.substring(index + 1);
+        for(int i = 0; i < M - 2; i++) {
+            if(arr[i] == 'I' && arr[i + 1] == 'O' && arr[i + 2] == 'I') {
+                count++;
+
+                if(count == N) {
+                    ans++;
+                    count--;
+                }
+                
+                i++;    // 다음 'IOI' 자리로 이동하기 위해 'O'는 더 건너뜀
+            } else {
+                count = 0;
+            }
         }
 
         System.out.print(ans);
