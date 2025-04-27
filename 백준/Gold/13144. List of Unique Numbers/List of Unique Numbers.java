@@ -40,9 +40,8 @@ class Main {
             }
         }
 
-        for(int i = 1; i <= right - left; i++) {
-            ans += i;
-        }
+        long len = right - left;
+        ans += len * (len + 1) / 2;
 
         System.out.print(ans);
     }
