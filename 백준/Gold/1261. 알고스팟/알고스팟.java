@@ -53,10 +53,10 @@ class Main {
 
     static void solve() {
         PriorityQueue<Pos> pq = new PriorityQueue<>();
-        boolean[][][] isVisited = new boolean[N][M][10001];
+        boolean[][] isVisited = new boolean[N][M];
 
         pq.add(new Pos(0, 0, 0));
-        isVisited[0][0][0] = true;
+        isVisited[0][0] = true;
 
         while(!pq.isEmpty()) {
             Pos cur = pq.poll();
@@ -70,17 +70,12 @@ class Main {
                 int nr = cur.row + dr[d];
                 int nc = cur.col + dc[d];
 
-                if(nr < 0 || nr >= N || nc < 0 || nc >= M) {
+                if(nr < 0 || nr >= N || nc < 0 || nc >= M || isVisited[nr][nc]) {
                     continue;
                 }
 
-                if(arr[nr][nc] == 1 && !isVisited[nr][nc][cur.count + 1]) {
-                    pq.add(new Pos(nr, nc, cur.count + 1));
-                    isVisited[nr][nc][cur.count + 1] = true;
-                } else if(arr[nr][nc] == 0 && !isVisited[nr][nc][cur.count]) {
-                    pq.add(new Pos(nr, nc, cur.count));
-                    isVisited[nr][nc][cur.count] = true;
-                }
+                pq.add(new Pos(nr, nc, cur.count + arr[nr][nc]));
+                isVisited[nr][nc] = true;
             }
         }
     }
