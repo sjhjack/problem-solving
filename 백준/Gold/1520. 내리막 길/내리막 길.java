@@ -1,3 +1,23 @@
+/**
+ *  [문제] https://www.acmicpc.net/problem/1520
+ *  
+ *  메모리 : 36968 KB
+ *  시간 : 428 ms
+ *  
+ *  # 접근1 : BFS
+ *  		- 단순히 BFS만 사용하면 중복되는 길 때문에 visit 처리를 못한다
+ *  		- visit처리가 없는 BFS는 지수개의 메모리가 필요하므로 불가능
+ *  
+ *  		-> Failed,, 메모리 초과
+ *  
+ *  # 접근2 : BFS + PQ
+ *  		- 우선순위큐를 사용해서 높은 지점에 탐색 우선순위를 뒀다.
+ *  		- 경로가 겹치는 이유는 해당 위치보다 높은 지점이 주변에 여러개 있다는 뜻이다.
+ *  		- 따라서 높이가 높은 지점부터 탐색을 하도록 하면 각 좌표를 한번씩만 탐색할 수 있다.
+ *  
+ *  		-> Solved !!
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -6,11 +26,11 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-	static int R, C, ans;
+	static int R, C;
 	
-	static int[][] arr;
-	static int[][] dp;
-	static int[] dr = {-1,1,0,0};
+	static int[][] arr;				// 원본 배열
+	static int[][] dp;				// 각 좌표에 도달하는 경우의 수 저장
+	static int[] dr = {-1,1,0,0};	// 상하좌우
 	static int[] dc = {0,0,-1,1};
 	
 	static class Pos implements Comparable<Pos>{
@@ -24,6 +44,7 @@ public class Main {
 			this.height = height;
 		}
 		
+		// 높이 내림차순 정렬
 		@Override
 		public int compareTo(Pos o) {
 			return o.height - height;
@@ -46,13 +67,10 @@ public class Main {
 				arr[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
-		
-		if(R == 1 && C == 1) ans = 1;
 	}
 	
 	static void solve() {
 		boolean[][] isVisited = new boolean[R][C];
-//		Queue<Pos> q = new ArrayDeque<>();
 		PriorityQueue<Pos> pq = new PriorityQueue<>();
 		
 		dp[0][0] = 1;
@@ -68,10 +86,6 @@ public class Main {
 				
 				if(nr<0 || nr>=R || nc<0 || nc>=C) continue;
 				if(arr[cur.row][cur.col] <= arr[nr][nc]) continue;
-//				if(nr == R-1 && nc == C-1) {
-//					ans++;
-//					continue;
-//				}
 				
 				if(!isVisited[nr][nc]) {
 					pq.add(new Pos(nr, nc, arr[nr][nc]));
@@ -79,18 +93,13 @@ public class Main {
 				}
 				
 				dp[nr][nc] += dp[cur.row][cur.col];
-				
-				
 			}
 		}
-		
 	}
 	
 	public static void main(String[] args) throws IOException {
 		input();
 		solve();
 		System.out.print(dp[R-1][C-1]);
-//		System.out.print(ans);
 	}
-
 }

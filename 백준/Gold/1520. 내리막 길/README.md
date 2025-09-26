@@ -4,15 +4,15 @@
 
 ### 성능 요약
 
-메모리: 36968 KB, 시간: 428 ms
+메모리: 36552 KB, 시간: 352 ms
 
 ### 분류
 
-깊이 우선 탐색, 다이나믹 프로그래밍, 그래프 이론, 그래프 탐색
+다이나믹 프로그래밍, 그래프 이론, 그래프 탐색, 깊이 우선 탐색
 
 ### 제출 일자
 
-2023년 10월 15일 20:26:21
+2023년 10월 15일 20:34:52
 
 ### 문제 설명
 
@@ -22,7 +22,7 @@
 
 <p>현재 제일 왼쪽 위 칸이 나타내는 지점에 있는 세준이는 제일 오른쪽 아래 칸이 나타내는 지점으로 가려고 한다. 그런데 가능한 힘을 적게 들이고 싶어 항상 높이가 더 낮은 지점으로만 이동하여 목표 지점까지 가고자 한다. 위와 같은 지도에서는 다음과 같은 세 가지 경로가 가능하다.</p>
 
-<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/917d0418-35db-4081-9f62-69a2cc78721e/-/preview/" style="width: 151px; height: 123px;"> <img alt="" src="https://upload.acmicpc.net/1ed5b78d-a4a1-49c0-8c23-12a12e2937e1/-/preview/" style="width: 151px; height: 121px;"> <img alt="" src="" style="width: 151px; height: 121px;"></p>
+<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/917d0418-35db-4081-9f62-69a2cc78721e/-/preview/" style="width: 151px; height: 123px;"> <img alt="" src="https://upload.acmicpc.net/1ed5b78d-a4a1-49c0-8c23-12a12e2937e1/-/preview/" style="width: 151px; height: 121px;"> <img alt="" src="https://upload.acmicpc.net/e57e7ef0-cc56-4340-ba5f-b22af1789f63/-/preview/" style="width: 151px; height: 121px;"></p>
 
 <p>지도가 주어질 때 이와 같이 제일 왼쪽 위 지점에서 출발하여 제일 오른쪽 아래 지점까지 항상 내리막길로만 이동하는 경로의 개수를 구하는 프로그램을 작성하시오.</p>
 
