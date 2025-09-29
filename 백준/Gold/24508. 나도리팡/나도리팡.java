@@ -59,7 +59,7 @@ class Main {
             }
         }
 
-        if(right < left && arr[left] == 0 && arr[right] == 0 && T >= 0) {
+        if(right < left && T >= 0) {
             System.out.print("YES");
         } else {
             System.out.print("NO");
