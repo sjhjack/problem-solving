@@ -68,32 +68,6 @@ class Solution {
         
         return round;
     }
-    
-    private boolean canMakeTarget(boolean[] isHave, int target) {
-        for(int i = 1; i < isHave.length - 1; i++) {
-            for(int j = i + 1; j < isHave.length; j++) {
-                if(isHave[i] && isHave[j] && i + j == target) {
-                    isHave[i] = false;
-                    isHave[j] = false;
-                    return true;
-                }
-            }
-        }
-        
-        return false;
-    }
-    
-    private boolean canMakeTargetFromHandAndDraw(boolean[] inHand, boolean[] canDraw, int target) {
-        for(int i = 1; i < inHand.length; i++) {
-            if(inHand[i] && canDraw[target - i]) {
-                inHand[i] = false;
-                canDraw[target - i] = false;
-                return true;
-            }
-        }
-        
-        return false;
-    }
 }
 
 
