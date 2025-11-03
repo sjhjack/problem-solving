@@ -27,7 +27,6 @@ class Main {
 
     static void solve() {
         int[] dp = new int[100];   // 체력이 0이되면 안 되니까 99까지만 탐색
-        int max = 0;
         
         for(int i = 0; i < N; i++) {
             int life = arr[i][0];
@@ -38,10 +37,6 @@ class Main {
             }
         }
 
-        for(int i = 0; i < dp.length; i++) {
-            max = Math.max(max, dp[i]);
-        }
-
-        System.out.print(max);
+        System.out.print(dp[99]);
     }
 }
