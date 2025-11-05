@@ -22,6 +22,7 @@ class Main {
     }
 
     static void solve() {
+        // [0] : i번째 총 경우의 수, [1] : i번째가 1자리인 경우, [2] : i번째가 2자리인 경우
         int[][] dp = new int[N][3];
 
         if(arr[0] > 0) {
